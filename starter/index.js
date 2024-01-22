@@ -64,7 +64,8 @@ const promptUser = () => {
 };
 const init = async () => {
   console.log("Welcome to the Team Profile Generator!");
-
+  const answers = await promptUser()
+  console.log(answers)
 };
 
 init();
