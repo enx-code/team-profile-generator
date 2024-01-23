@@ -74,6 +74,18 @@ const init = async () => {
         );
         teamMembers.push(manager);
         break;
+      case "Engineer":
+        const engineer = new Engineer(
+            answers.name, answers.id, answers.email, answers.github
+        )
+        teamMembers.push(engineer);
+        break;
+      case "Intern":
+        const intern = new Intern (
+            answers.name, answers.id, answers.email, answers,school
+        );
+        teamMembers.push(intern);
+        break;
       case "Finish building the team":
         const html = render(teamMembers);
         fs.writeFileSync(outputPath, html)
