@@ -82,7 +82,7 @@ const init = async () => {
         break;
       case "Intern":
         const intern = new Intern (
-            answers.name, answers.id, answers.email, answers,school
+            answers.name, answers.id, answers.email, answers.school
         );
         teamMembers.push(intern);
         break;
