@@ -62,15 +62,20 @@ const init = async () => {
     const answers = await promptUser();
     console.log(answers);
     switch (answers.role) {
-        case "Manager":
+      case "Manager":
         const manager = new Manager(
-            answers.name, answers.id, answers.email, answers.officeNumber
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.officeNumber
         );
-        teamMembers.push(manager)
+        teamMembers.push(manager);
         break;
-        case "Finish building the team":
-        const html = render(teamMembers)
-        console.log(html)
+      case "Finish building the team":
+        const html = render(teamMembers);
+        fs.writeFileSync(outputPath, html)
+        console.log(`Team profile generated successfully at ${outputPath}`);
+        return;
     }
   }
 };
