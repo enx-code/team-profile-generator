@@ -58,6 +58,9 @@ const promptUser = () => {
 };
 const init = async () => {
   console.log("Welcome to the Team Profile Generator!");
+  if (!fs.existsSync(OUTPUT_DIR)){
+    fs.mkdirSync(OUTPUT_DIR);
+  }
   while (true) {
     const answers = await promptUser();
     console.log(answers);
