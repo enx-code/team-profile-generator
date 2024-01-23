@@ -10,15 +10,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
-
-
-// Array to store team members
 const teamMembers = [];
 
-// Function to gather information about the team members
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -64,8 +58,21 @@ const promptUser = () => {
 };
 const init = async () => {
   console.log("Welcome to the Team Profile Generator!");
-  const answers = await promptUser()
-  console.log(answers)
+  while (true) {
+    const answers = await promptUser();
+    console.log(answers);
+    switch (answers.role) {
+        case "Manager":
+        const manager = new Manager(
+            answers.name, answers.id, answers.email, answers.officeNumber
+        );
+        teamMembers.push(manager)
+        break;
+        case "Finish building the team":
+        const html = render(teamMembers)
+        console.log(html)
+    }
+  }
 };
 
 init();
